@@ -8,25 +8,31 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <div class="grid">
+    <div class="page-grid">
       <header class="flex">
-        <h1 class="main-heading"><span>Your</span>App</h1>
-        <img class="notification-bell" src="icons/icon-bell.svg" alt="Notification Bell">
-        <img class="profile-img" src="images/profile-img.jpg" alt="profile-img">
-        <span class="username">Josh Sulivan</span>
+        <h1 class="main-heading"><span>Your</span>App&#153</h1>
+        <div class="user-heading flex">
+          <img class="notification-bell" src="icons/icon-bell.svg" alt="Notification Bell">
+          <img class="profile-img" src="images/profile-img.jpg" alt="profile-img">
+          <span class="username">Josh Sulivan</span>
+        </div>
       </header>
-      <nav class="flex">
-        <img src="icons/icon-dashboard.svg" alt="Dashboard Icon">
-        <img src="icons/icon-members.svg" alt="Members Icon">
-        <img src="icons/icon-visits.svg" alt="Visits Icon">
-        <img src="icons/icon-settings.svg" alt="Settings Icon">
+      <nav>
+        <div class="nav-icons flex">
+          <img src="icons/icon-dashboard.svg" alt="Dashboard Icon">
+          <img src="icons/icon-members.svg" alt="Members Icon">
+          <img src="icons/icon-visits.svg" alt="Visits Icon">
+          <img src="icons/icon-settings.svg" alt="Settings Icon">
+        </div>
       </nav>
-      <main>
-        <div class="web-traffic-div">
+      <main class="content-grid">
+        <div class="secondary-heading flex">
           <h2>Dashboard</h2>
           <div class="searchbar flex">
             <input type="search" id="search" name="search" placeholder="Search">
           </div>
+        </div>  
+        <div class="web-traffic-div">
           <h3>TRAFFIC</h3>
           <canvas id="web-traffic-chart"></canvas>
         </div>
@@ -175,18 +181,35 @@
         <div class="settings flex">
           <h3>SETTINGS</h3>
           <form class="flex"> 
-            <p>Send Email Notifications</p>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-            <p>Set Profile to Public</p>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <div class="flex">
+              <p>Send Email Notifications</p>
+              <div>
+                <input type="checkbox" id="switch" class="checkbox"/> 
+                <label for="switch" class="toggle"> 
+                  <div class="toggle-text flex">
+                    <span>OFF</span>  
+                    <span>ON</span>
+                  </div>  
+                </label>
+              </div>
+            </div> 
+            <div class="flex">
+              <p>Set Profile to Public</p>
+              <div>
+                <input type="checkbox" id="switch2" class="checkbox"/> 
+                <label for="switch2" class="toggle"> 
+                  <div class="toggle-text flex">
+                    <span>OFF</span>  
+                    <span>ON</span>
+                  </div> 
+                </label>
+              </div> 
+            </div>
             <select id="timezone-select" name="timezone-select">
-              <option></option>
+              <option>Eastern</option>
+              <option>Central</option>
+              <option>Mountain</option>
+              <option>Pacific</option>
             </select>
             <div class="settings-submit-buttons flex">
               <input type="submit" id="save-button" name="save-button" value="SAVE">
