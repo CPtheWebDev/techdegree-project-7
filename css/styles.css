@@ -1,7 +1,67 @@
 /* Main Styles */
-header {
+main {
+  color: #595959;
+}
+main > div {
+  padding-bottom: 1em;
+}
+main > div,
+.web-traffic-div h3,
+.member ~ .member {
+  border-top: 1px solid #595959;
+}
+h2,
+h3 {
+  font-weight: lighter;
+  text-align: center;
+}
+.searchbar,
+.stats-box {
+  background-color: #ededed;
+}
+header,
+.svg-container,
+#send-button,
+#save-button {
   background-color: #7146e8;
+}
+header,
+input[type="submit"] {
   color: #fff;
+}
+input[type="submit"] {
+  border: none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+input,
+select,
+.stats-box {
+  border-radius: 5px;
+}
+#cancel-button {
+  background-color: #ccc;
+}
+.stats-box h4 {
+  color: #7146e8;
+}
+.stats-box span {
+  font-size: 40px;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-rows: 70px 70px;
+}
+
+/* Flexbox and Flex-items */
+.flex {
+  display: flex;
+}
+.searchbar input {
+  margin: 1em auto;
+  padding: .5em;
 }
 .main-heading {
   margin-left: .5em;
@@ -11,16 +71,26 @@ header {
 .main-heading span {
   font-weight: bold;
 }
-.notification-bell {
-  height: 1em;
-  width: 1em;
-  margin-left: auto;
+.notification-bell, 
+.profile-img {
   margin-right: 1em;
+}
+.notification-bell {
+  height: 20px;
+  width: 20px;
+  margin-left: auto;
+}
+.profile-img {
+  height: 30px;
+  width: 30px;
 }
 .username {
   margin-right: .5em;
 }
-.main-heading, .username, .notification-bell {
+.main-heading, 
+.username, 
+.notification-bell,
+.profile-img {
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -33,26 +103,73 @@ nav img {
   width: 1.5em;
   margin: auto;
 }
-/* Grid and Flexbox */
-.grid {
-  display: grid;
-  grid-template-rows: 70px 70px;
+.searchbar {
+  margin-bottom: 2em;
 }
-.flexbox {
-  display: flex;
+.web-traffic-div h3 {
+  padding-top: 1em;
 }
-/* Media Queries */
-@media (min-width: 768px) {
- .notification-bell {
-   border-right: black 1px solid;
-   padding-right: 1em;
- }
+.svg-container {
+  width: 80px;
+  height: 80px;
 }
-@media (min-width: 1024px) {
-
+.svg-container svg {
+  margin: 1em;
+}
+.svg-container,
+img[src*="member-"],
+.profile-img {
+  border-radius: 50%;
+}
+.stats-box {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid #595959;
+}
+.stats-box div {
+  margin: auto;
+}
+.stat-values h4 {
+  margin-bottom: 0;
+  margin-top: auto;
+}
+form,
+.new-members,
+.recent-activities,
+.message-user,
+.settings, 
+.settings-submit-buttons {
+  flex-direction: column;
+  margin: 0 1em;
+}
+.member {
+  display: block;
+  text-align: center;
+}
+.new-members .member p {
+  margin-bottom: 0;
+}
+.new-members .member {
+  margin-top: 1em;
+  padding-bottom: 1em;
+}
+.member ~ .member {
+  padding-top: 1.5em;
+}
+.message-user input,
+.settings input {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.settings select {
+  margin: 1em 0;
+}
+.settings-submit-buttons input {
+  margin: .5em 0;
 }
 
 /* Toggle Switch */
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -94,11 +211,11 @@ nav img {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #7146e8;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #7146e8;
 }
 
 input:checked + .slider:before {
@@ -115,3 +232,14 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .notification-bell {
+    border-right: black 1px solid;
+    padding-right: 1em;
+  }
+ }
+ @media (min-width: 1024px) {
+ 
+ }

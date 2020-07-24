@@ -1,26 +1,27 @@
-var ctx1 = document.getElementById('web-traffic');
+var ctx1 = document.getElementById('web-traffic-chart');
 var myLineChart = new Chart(ctx1, {
   type: 'line',
   data: {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'TRAFFIC',
+        data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(113, 70, 232, 0.2)'
         ],
         borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8'
         ],
         borderWidth: 1
     }]
@@ -36,30 +37,24 @@ options: {
 }
 });
 
-var ctx2 = document.getElementById('daily-traffic');
+var ctx2 = document.getElementById('daily-traffic-chart');
 var myBarChart = new Chart(ctx2, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'DAILY TRAFFIC',
+        data: [75, 100, 175, 125, 225, 200, 100],
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8',
+            '#7146e8'
         ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
+        borderColor: [],
         borderWidth: 1
     }]
 },
@@ -74,40 +69,21 @@ options: {
 }
 });
 
-var ctx3 = document.getElementById('mobile-user');
+var ctx3 = document.getElementById('mobile-user-chart');
 var myDoughnutChart = new Chart(ctx3, {
   type: 'doughnut',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Phones', 'Tablets', 'Desktop'],
     datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'MOBILE USERS',
+        data: [1, 1, 6],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            '#7146e8'
         ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
+        borderColor: [],
         borderWidth: 1
     }]
-},
-options: {
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
-    }
-}
+ }
 });
