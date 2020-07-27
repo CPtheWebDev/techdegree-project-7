@@ -2,9 +2,9 @@ var ctx1 = document.getElementById('web-traffic-chart');
 var myLineChart = new Chart(ctx1, {
   type: 'line',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
     datasets: [{
-        label: 'TRAFFIC',
+        label: 'Number of Visitors Weekly',
         data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
         backgroundColor: [
             'rgba(113, 70, 232, 0.2)'
@@ -33,6 +33,9 @@ options: {
                 beginAtZero: true
             }
         }]
+    },
+    legend: {
+        display: false
     }
 }
 });
@@ -43,7 +46,7 @@ var myBarChart = new Chart(ctx2, {
   data: {
     labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     datasets: [{
-        label: 'DAILY TRAFFIC',
+        label: 'Number of Visitors',
         data: [75, 100, 175, 125, 225, 200, 100],
         backgroundColor: [
             '#7146e8',
@@ -65,6 +68,9 @@ options: {
                 beginAtZero: true
             }
         }]
+    },
+    legend: {
+        display: false
     }
 }
 });
@@ -78,12 +84,20 @@ var myDoughnutChart = new Chart(ctx3, {
         label: 'MOBILE USERS',
         data: [1, 1, 6],
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
+            '#34eb64',
+            '#7bc9c6',
             '#7146e8'
         ],
         borderColor: [],
         borderWidth: 1
     }]
- }
+ }, 
+ options: {
+    legend: {
+        position: 'right',
+        labels: {
+        boxWidth: 15
+        }
+    }
+ }  
 });

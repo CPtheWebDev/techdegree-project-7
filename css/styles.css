@@ -10,6 +10,24 @@
   display: flex;
 }
 
+/* Image Dimensions */
+.notification-bell {
+  height: 20px;
+  width: 20px;
+}
+.profile-img {
+  height: 30px;
+  width: 30px;
+}
+.nav-icons a img {
+  height: 1.5em;
+  width: 1.5em;
+}
+img[src*="member-"] {
+  height: 64px;
+  width: 64px;
+}
+
 /* Main Styles */
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -17,7 +35,8 @@
 main {
   color: #595959;
 }
-.main-heading span {
+.main-heading span,
+.alert span {
   font-weight: bold;
 }
 main > div,
@@ -33,21 +52,10 @@ h3 {
 .stats-box {
   background-color: #ededed;
 }
-.notification-bell {
-  height: 20px;
-  width: 20px;
-}
-.profile-img {
-  height: 30px;
-  width: 30px;
-}
-img[src*="member-"] {
-  height: 64px;
-  width: 64px;
-}
 .svg-container,
 img[src*="member-"],
-.profile-img {
+.profile-img,
+.notification-dot {
   border-radius: 50%;
 }
 nav {
@@ -55,12 +63,14 @@ nav {
 }
 header,
 .svg-container,
+.alert,
 #send-button,
 #save-button {
   background-color: #7146e8;
 }
 header,
-input[type="submit"] {
+input[type="submit"],
+.alert {
   color: #fff;
 }
 input[type="submit"] {
@@ -68,14 +78,16 @@ input[type="submit"] {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-input[type="search"] {
+input[type="search"], 
+select {
   border-width: 1px;
   padding-top: .5em;
   padding-bottom: .5em;
 }
 input,
 select,
-.stats-box {
+.stats-box,
+.alert {
   border-radius: 5px;
 }
 #cancel-button {
@@ -86,6 +98,9 @@ select,
 }
 .stats-box span {
   font-size: 40px;
+}
+.close {
+  font-size: 2em;
 }
 
 /* Content Positioning */
@@ -113,7 +128,11 @@ main > div {
   padding: .5em;
 }
 .main-heading,
-.user-heading {
+.user-heading,
+.nav-icons a,
+.stats-box div,
+.alert p:first-child,
+.close {
   margin: auto;
 }
 .main-heading {
@@ -133,10 +152,10 @@ main > div {
 .nav-icons {
   margin-top: 1.4em;
 }
-.nav-icons img {
-  height: 1.5em;
-  width: 1.5em;
-  margin: auto;
+.canvas-container {
+  width: 95vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .svg-container {
   width: 80px;
@@ -149,9 +168,6 @@ main > div {
   padding: 1em;
   margin: 1em;
   border: 1px solid #595959;
-}
-.stats-box div {
-  margin: auto;
 }
 .stat-values h4 {
   margin-bottom: 0;
@@ -188,56 +204,33 @@ main > div {
 .settings-submit-buttons input {
   margin: .5em 0;
 }
-
-/* Toggle Switch */
-.toggle { 
-  position : relative ; 
-  display : inline-block; 
-  width : 120px; 
-  height : 45px; 
-  background-color: #7146e8; 
-  border-radius: 30px; 
-  border: 2px solid #595959; 
-} 
-      
-/* After slide changes */
-.toggle:after { 
-  content: ''; 
-  position: absolute; 
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-  background-color: #fff; 
-  border: 1px solid #595959;
-  top: 1px;  
-  left: 1px; 
-  transition: all 0.5s; 
-} 
-      
-/* Toggle text */
-.toggle-text {
-  color: #fff;
-  font-weight: bold;
+form div div {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.alert {
+  padding: .7em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
   justify-content: space-between;
+  display: none;
 }
-.toggle-text span {
-  margin: 15px 7px;
+.notification-bell {
+  position: relative;
 }
-      
-/* Checkbox cheked effect */
-.checkbox:checked + .toggle::after { 
-  left : 77px;  
-} 
-      
-/* Checkbox cheked toggle label bg color */
-.checkbox:checked + .toggle { 
-  background-color: #7146e8; 
-} 
-      
-/* Checkbox vanished */
-.checkbox {  
-  display : none; 
-} 
+.notification-dot {
+  height: 5px;
+  width: 5px;
+  background-color: orange;
+  position: absolute;
+  top: -2px;
+  left: 16px;
+}
+.notification-bell img:hover {
+  transform: rotate(20deg);
+}
 
 /* Media Queries */
 @media (min-width: 768px) {
@@ -276,6 +269,7 @@ main > div {
   .content-grid {
     grid-template-areas: 
       "s-heading s-heading"
+      "alert alert"
       "web-traffic web-traffic"
       "daily-traffic mobile-user"
       "social-stats social-stats"
@@ -311,6 +305,13 @@ main > div {
   .settings {
     grid-area: settings;
   }
+  .alert {
+    grid-area: alert;
+  }
+  .daily-traffic-div .canvas-container,
+  .mobile-user-div .canvas-container {
+    width: 45vw;
+  }
   .new-members,
   .recent-activities {
     padding-left: 1em;
@@ -333,6 +334,17 @@ main > div {
   }
   .recent-activities .member div {
     flex-basis: 80%;
+  }
+  .settings form div:nth-child(1),
+  .settings form div:nth-child(2) {
+    padding-bottom: 10px;
+  }
+  .alert {
+    width: 90%;
+    padding: .2em;
+  }
+  .close {
+    margin-left: 43%;
   }
 }
  @media (min-width: 1024px) {
@@ -357,11 +369,18 @@ main > div {
   .content-grid {
     grid-template-areas: 
       "s-heading s-heading"
+      "alert alert"
       "web-traffic web-traffic"
       "daily-traffic mobile-user"
       "social-stats social-stats"
       "new-members recent"
       "message-user settings";
+  }
+  .content-grid div h3 {
+    text-align: left;
+  }
+  .web-traffic-div .canvas-container {
+    width: 90vw;
   }
   .new-members,
   .recent-activities,
@@ -373,8 +392,19 @@ main > div {
   .recent-activities {
     border-top: none;
   }
+  .web-traffic-div,
+  .daily-traffic-div,
+  .mobile-user-div {
+    padding: 1em;
+  }
   .message-user form {
     height: 100%;
+  }
+  #user-message {
+    height: 40%;
+  }
+  #send-button {
+    margin-bottom: 0;
   }
   .social-stats {
     display: flex;
@@ -402,4 +432,33 @@ main > div {
   .recent-activities .member p:nth-child(2) {
     margin-top: 0;
   }
- }
+  .member {
+    min-height: 100px;
+  }
+  .member img, 
+  .member p, 
+  .member a {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .new-members .member div {
+    flex-basis: 60%;
+  }
+  .settings-submit-buttons {
+    flex-direction: row;
+  }
+  .settings-submit-buttons input {
+    margin-bottom: 0;
+    width: 47%;
+  }
+  form div div {
+    margin-right: 33%;
+  }
+  .alert {
+    width: 95%;
+    padding: .3em;
+  }
+  .close {
+    margin-left: 55%;
+  }
+} 
